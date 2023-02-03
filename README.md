@@ -9,6 +9,7 @@
 1. Postgresql Setup:
   ```python
   sudo -u postgres psql
+  psql -U postgres -h localhost # for windows.
   CREATE DATABASE dream;
   CREATE USER dream WITH PASSWORD 'dream';
   ALTER ROLE dream SET client_encoding TO 'utf8';
