@@ -12,7 +12,7 @@ class RegisterSerializer(serializers.Serializer):
     first_name = serializers.CharField(required=True, write_only=True)
     last_name = serializers.CharField(required=True, write_only=True)
     email = serializers.EmailField(required=True, write_only=True)
-    id = serializers.CharField(required=True, write_only=True)
+    google_id = serializers.CharField(required=True, write_only=True)
 
 
     def validate_email(self, email):
@@ -29,11 +29,11 @@ class RegisterSerializer(serializers.Serializer):
 
     def get_cleaned_data(self):
         return {
-            'password1': self.validated_data.get('id'),
+            'password1': "randompassword",
             'email': self.validated_data.get('email', ''),
             'first_name': self.validated_data.get('first_name', ''),
             'last_name': self.validated_data.get('last_name', ''),
-            'email': self.validated_data.get('email', ''),
+            'google_id': self.validated_data.get('google_id', ''),
         }
 
     def save(self, request):
@@ -46,5 +46,6 @@ class RegisterSerializer(serializers.Serializer):
         user.first_name = self.cleaned_data.get('first_name')
         user.last_name = self.cleaned_data.get('last_name')
         user.email = self.cleaned_data.get('email')
+        user.google_id = self.cleaned_data.get('google_id')
         user.save()
         return user

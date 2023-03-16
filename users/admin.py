@@ -7,7 +7,7 @@ from users import models
 class UserAdmin(UserAdmin):
     fieldsets =  (
         (None, {"fields": ("username",)}),
-        (("Personal info"), {"fields": ("first_name", "last_name", "email")}),
+        (("Personal info"), {"fields": ("first_name", "last_name", "email" , "google_id" , "is_premium")}),
         
            (("User Course Details"), {
             "fields": (
@@ -25,7 +25,7 @@ class UserAdmin(UserAdmin):
     #     }),
     # )
 
-    readonly_fields = ('date_joined', 'last_login'  , 'first_name', 'last_name', 'email' , 'username')
+    readonly_fields = ('date_joined', 'last_login'  , 'first_name', 'last_name', 'email' , 'username' , 'google_id')
     
 
 
