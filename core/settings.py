@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'drf_yasg2', # For APIs documentation.
+
+    'users',
+    'content'
 ]
 
 
@@ -127,6 +130,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTH_USER_MODEL = 'users.User'
+
+
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'users.serializers.RegisterSerializer',
+}
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
